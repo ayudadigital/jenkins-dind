@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('github.com/tpbtools/jenkins-pipeline-library@v3.5.2') _
+@Library('github.com/tpbtools/jenkins-pipeline-library@v4.0.0') _
 
 // Initialize global config
 cfg = jplConfig('jenkins-dind', 'docker', '', [email: env.CI_NOTIFY_EMAIL_TARGETS])
@@ -70,8 +70,8 @@ pipeline {
         always {
             jplPostBuild(cfg)
         }
-        failure {
-            deleteDir() /* clean up workspace on failure */
+        cleanup {
+            deleteDir()
         }
     }
 
