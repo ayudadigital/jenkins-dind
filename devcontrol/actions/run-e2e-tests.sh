@@ -21,7 +21,7 @@ function run-e2e-tests() {
     helpMessage=$(cat <<EOF
 Run end to end tests using jpl project tests and the 'beta' image
 
-Related project: https://github.com/teecke/jenkins-pipeline-library
+Related project: https://github.com/tpbtools/jenkins-pipeline-library
 EOF
 )
 
@@ -37,7 +37,7 @@ EOF
             EXITCODE=0
             TESTDIR=$(mktemp -d)
             cd "${TESTDIR}" || exit 1
-            git clone https://github.com/teecke/jenkins-pipeline-library.git -b develop
+            git clone https://github.com/tpbtools/jenkins-pipeline-library.git -b develop
             cd jenkins-pipeline-library || exit 1
             TAG=beta bin/test.sh
             EXITCODE=$?
