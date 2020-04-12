@@ -1,9 +1,9 @@
 #!groovy
 
-@Library('github.com/teecke/jenkins-pipeline-library@v3.4.1') _
+@Library('github.com/tpbtools/jenkins-pipeline-library@v3.5.2') _
 
 // Initialize global config
-cfg = jplConfig('jenkins-dind', 'docker', '', [email: env.CITEECKE_NOTIFY_EMAIL_TARGETS])
+cfg = jplConfig('jenkins-dind', 'docker', '', [email: env.CI_NOTIFY_EMAIL_TARGETS])
 String jenkinsVersion
 
 /**
@@ -12,10 +12,10 @@ String jenkinsVersion
  * @param nextReleaseNumber String Release number to be used as tag
  */
 def publishDockerImage(String jenkinsVersion) {
-    docker.withRegistry("", 'teeckebot-docker-credentials') {
-        docker.image("teecke/jenkins-dind:${jenkinsVersion}").push()
+    docker.withRegistry("", 'docker-token') {
+        docker.image("${env.DOCKER_ORGANIZATION}/jenkins-dind:${jenkinsVersion}").push()
         if (jenkinsVersion != "beta") {
-            docker.image("teecke/jenkins-dind:latest").push()
+            docker.image("${env.DOCKER_ORGANIZATION}/jenkins-dind:latest").push()
         }
     }
 }
@@ -70,6 +70,9 @@ pipeline {
         always {
             jplPostBuild(cfg)
         }
+        failure {
+            deleteDir() /* clean up workspace on failure */
+        }
     }
 
     options {
@@ -77,6 +80,6 @@ pipeline {
         ansiColor('xterm')
         buildDiscarder(logRotator(artifactNumToKeepStr: '20',artifactDaysToKeepStr: '30'))
         disableConcurrentBuilds()
-        timeout(time: 30, unit: 'MINUTES')
+        timeout(time: 10, unit: 'MINUTES')
     }
 }
