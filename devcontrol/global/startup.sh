@@ -2,7 +2,7 @@
 
 # @file devcontrol/global/startup.sh
 # @brief devcontrol startup script and functions
-echo "Jenkins DinD (c) Teecke 2019 - 2020"
+echo "Jenkins DinD (c) TIC para Bien 2019 - 2020"
 echo
 
 # @description Check presence of docker-related pieces in the system

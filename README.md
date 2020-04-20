@@ -1,8 +1,4 @@
-# DEPRECATED
-
-Please use https://github.com/tpbtools/jenkins-dind
-
-# Teecke - Jenkins Dind
+# TIC para Bien - Jenkins Dind
 
 Official Docker Jenkins combined with Official Docker DIND.
 
@@ -10,7 +6,7 @@ Official Docker Jenkins combined with Official Docker DIND.
 
 To have a Jenkins docker image allowed to run docker inside using "docker:dind" project.
 
-The "teecke/jenkins-dind" image will be builded like a lego, based on two projects:
+The "tpbtools/jenkins-dind" image will be builded like a lego, based on two projects:
 
 - [Jenkins](https://github.com/jenkinsci/docker) Official Docker image project.
 - [Docker Dind](https://github.com/docker-library/docker) Official Image project.
@@ -25,13 +21,13 @@ If you want to build the image:
 
 - Linux or Mac as the base OS for the build.
 - [Docker](https://www.docker.com) installed.
-- [Teecke devcontrol](https://github.com/teecke/devcontrol) installed.
+- [TIC para Bien devcontrol](https://github.com/tpbtools/devcontrol) installed.
 
 ## Usage
 
 ### Build
 
-Build the Teecke Jenkins DIND docker image with:
+Build the Jenkins DIND docker image with:
 
 ```console
 $ devcontrol build
@@ -55,18 +51,18 @@ Once this info was changed, you can do the build as it is explained in this docu
 
 ### Run
 
-To start a Jenkins Dind container follow the same instructions as in the [Jenkins](https://github.com/jenkinsci/docker) project, but changing "jenkins/jenkins:lts" docker image reference with "teecke/jenkins-dind" and adding the `--privileged` flag.
+To start a Jenkins Dind container follow the same instructions as in the [Jenkins](https://github.com/jenkinsci/docker) project, but changing "jenkins/jenkins:lts" docker image reference with "tpbtools/jenkins-dind" and adding the `--privileged` flag.
 
 After the container starts, you can view the `jenkins` and `docker` processes running and you can run a docker container within the running container, even with the `jenkins` user.
 
 ```console
-$ docker run --privileged -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 teecke/jenkins-dind
+$ docker run --privileged -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 tpbtools/jenkins-dind
 77660364c9b551adae737868b94b96f56ff4f7087c7175956e12f245572973f1
 $ docker exec -ti 77660364c9b5 bash
 bash-5.0# ps faux
 PID   USER     TIME  COMMAND
-    1 root      0:00 /sbin/tini -- /usr/local/bin/teecke-jenkins-dind.sh
-    6 root      0:00 {teecke-jenkins-} /bin/bash -e /usr/local/bin/teecke-jenkins-dind.sh
+    1 root      0:00 /sbin/tini -- /usr/local/bin/tpb-jenkins-dind.sh
+    6 root      0:00 {tpb-jenkins-} /bin/bash -e /usr/local/bin/tpb-jenkins-dind.sh
     7 root      0:00 dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2376 --tlsverify --tlscacert /certs/server/ca.pem --tlscert /certs/server/cert.pem --tlskey /certs/server/key.pem
    60 root      0:00 containerd --config /var/run/docker/containerd/containerd.toml --log-level info
   193 jenkins   0:00 /sbin/tini -- /usr/local/bin/jenkins.sh
