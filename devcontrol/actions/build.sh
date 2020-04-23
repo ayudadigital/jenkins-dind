@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-# @description Build the tpbtools/jenkins-dind docker image
+# @description Build the ayudadigital/jenkins-dind docker image
 #
 # @example
 #   build
@@ -18,7 +18,7 @@ function build() {
     # Init
     local briefMessage
     local helpMessage
-    briefMessage="Build the tpbtools/jenkins-dind docker image"
+    briefMessage="Build the ayudadigital/jenkins-dind docker image"
     helpMessage=$(cat <<EOF
 Build the Jenkins Dind image.
 It is based in a combination of jenkins/jenkins:lts docker image and docker:dind
@@ -48,15 +48,15 @@ EOF
             cd "${buildDir}"
             git clone --quiet https://github.com/jenkinsci/docker.git .
             rsync -a "${baseDir}/resources/" resources/
-            # Make "frankenstein" tpbtools/jenkins-dind Dockerfile
+            # Make "frankenstein" ayudadigital/jenkins-dind Dockerfile
             echo "FROM docker:dind" > Dockerfile-tpb-jenkins-dind
             cat resources/Dockerfile.tpb-jenkins-dind.partial >> Dockerfile-tpb-jenkins-dind
             grep -v "^FROM\|^ENTRYPOINT" Dockerfile-alpine >> Dockerfile-tpb-jenkins-dind
             echo "USER root" >> Dockerfile-tpb-jenkins-dind
-            # Build the tpbtools/jenkins-dind docker image
-            docker build --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --file Dockerfile-tpb-jenkins-dind -t tpbtools/jenkins-dind:"${JENKINS_TAG}" .
+            # Build the ayudadigital/jenkins-dind docker image
+            docker build --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --file Dockerfile-tpb-jenkins-dind -t ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
             if [ ${JENKINS_TAG} != "beta" ]; then
-                docker build --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --file Dockerfile-tpb-jenkins-dind -t tpbtools/jenkins-dind:latest .
+                docker build --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --file Dockerfile-tpb-jenkins-dind -t ayudadigital/jenkins-dind:latest .
             fi
             # Prune build dir
             cd "${baseDir}" || exit 1
