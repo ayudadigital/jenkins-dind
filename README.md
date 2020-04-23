@@ -1,4 +1,4 @@
-# TIC para Bien - Jenkins Dind
+# Ayuda Digital - Jenkins Dind
 
 Official Docker Jenkins combined with Official Docker DIND.
 
@@ -6,7 +6,7 @@ Official Docker Jenkins combined with Official Docker DIND.
 
 To have a Jenkins docker image allowed to run docker inside using "docker:dind" project.
 
-The "tpbtools/jenkins-dind" image will be builded like a lego, based on two projects:
+The "ayudadigital/jenkins-dind" image will be builded like a lego, based on two projects:
 
 - [Jenkins](https://github.com/jenkinsci/docker) Official Docker image project.
 - [Docker Dind](https://github.com/docker-library/docker) Official Image project.
@@ -21,7 +21,7 @@ If you want to build the image:
 
 - Linux or Mac as the base OS for the build.
 - [Docker](https://www.docker.com) installed.
-- [TIC para Bien devcontrol](https://github.com/tpbtools/devcontrol) installed.
+- [TIC para Bien devcontrol](https://github.com/ayudadigital/devcontrol) installed.
 
 ## Usage
 
@@ -51,12 +51,12 @@ Once this info was changed, you can do the build as it is explained in this docu
 
 ### Run
 
-To start a Jenkins Dind container follow the same instructions as in the [Jenkins](https://github.com/jenkinsci/docker) project, but changing "jenkins/jenkins:lts" docker image reference with "tpbtools/jenkins-dind" and adding the `--privileged` flag.
+To start a Jenkins Dind container follow the same instructions as in the [Jenkins](https://github.com/jenkinsci/docker) project, but changing "jenkins/jenkins:lts" docker image reference with "ayudadigital/jenkins-dind" and adding the `--privileged` flag.
 
 After the container starts, you can view the `jenkins` and `docker` processes running and you can run a docker container within the running container, even with the `jenkins` user.
 
 ```console
-$ docker run --privileged -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 tpbtools/jenkins-dind
+$ docker run --privileged -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 ayudadigital/jenkins-dind
 77660364c9b551adae737868b94b96f56ff4f7087c7175956e12f245572973f1
 $ docker exec -ti 77660364c9b5 bash
 bash-5.0# ps faux
