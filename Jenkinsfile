@@ -62,6 +62,7 @@ pipeline {
             steps {
                 publishDockerImage(jenkinsVersion)
                 jplMakeRelease(cfg, true)
+                deleteDir()
             }
         }
     }
@@ -69,9 +70,6 @@ pipeline {
     post {
         always {
             jplPostBuild(cfg)
-        }
-        cleanup {
-            deleteDir()
         }
     }
 
