@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('github.com/ayudadigital/jenkins-pipeline-library@v4.0.0') _
+@Library('github.com/ayudadigital/jenkins-pipeline-library@v5.0.0') _
 
 // Initialize global config
 cfg = jplConfig('jenkins-dind', 'docker', '', [email: env.CI_NOTIFY_EMAIL_TARGETS])
@@ -62,7 +62,11 @@ pipeline {
             steps {
                 publishDockerImage(jenkinsVersion)
                 jplMakeRelease(cfg, true)
-                deleteDir()
+            }
+            post {
+                cleanup {
+                    deleteDir()
+                }
             }
         }
     }
