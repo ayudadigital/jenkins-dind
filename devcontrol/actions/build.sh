@@ -49,14 +49,14 @@ EOF
             git clone --quiet https://github.com/jenkinsci/docker.git .
             rsync -a "${baseDir}/resources/" resources/
             # Make "frankenstein" ayudadigital/jenkins-dind Dockerfile
-            echo "FROM docker:dind" > Dockerfile-tpb-jenkins-dind
-            cat resources/Dockerfile.tpb-jenkins-dind.partial >> Dockerfile-tpb-jenkins-dind
-            grep -v "^FROM\|^ENTRYPOINT" Dockerfile-alpine >> Dockerfile-tpb-jenkins-dind
-            echo "USER root" >> Dockerfile-tpb-jenkins-dind
+            echo "FROM docker:dind" > Dockerfile-jenkins-dind
+            cat resources/Dockerfile.partial >> Dockerfile-jenkins-dind
+            grep -v "^FROM\|^ENTRYPOINT" Dockerfile-alpine >> Dockerfile-jenkins-dind
+            echo "USER root" >> Dockerfile-jenkins-dind
             # Build the ayudadigital/jenkins-dind docker image
-            docker build --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --file Dockerfile-tpb-jenkins-dind -t ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
+            docker build --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --file Dockerfile-jenkins-dind -t ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
             if [ ${JENKINS_TAG} != "beta" ]; then
-                docker build --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --file Dockerfile-tpb-jenkins-dind -t ayudadigital/jenkins-dind:latest .
+                docker tag ayudadigital/jenkins-dind:"${JENKINS_TAG}" ayudadigital/jenkins-dind:latest
             fi
             # Prune build dir
             cd "${baseDir}" || exit 1
