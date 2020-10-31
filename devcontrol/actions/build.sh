@@ -51,7 +51,7 @@ EOF
             # Make "frankenstein" ayudadigital/jenkins-dind Dockerfile
             echo "FROM docker:dind" > Dockerfile-jenkins-dind
             cat resources/Dockerfile.partial >> Dockerfile-jenkins-dind
-            grep -v "^FROM\|^ENTRYPOINT" Dockerfile-alpine >> Dockerfile-jenkins-dind
+            grep -v "^FROM\|^ENTRYPOINT" 11/alpine/hotspot/Dockerfile >> Dockerfile-jenkins-dind
             echo "USER root" >> Dockerfile-jenkins-dind
             # Build the ayudadigital/jenkins-dind docker image
             docker build --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --file Dockerfile-jenkins-dind -t ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
