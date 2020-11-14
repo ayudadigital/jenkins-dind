@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.8.0 (2020-11-14)
+
+### Changes
+
+#### Upgrade
+
+* Use Jenkins v2.249.3 ([fb0d744](https://github.com/ayudadigital/jenkins-dind/commit/fb0d744))
+
+#### Build
+
+* Update Auto Release Log adding v2.8.0 info with JPL ([21675b7](https://github.com/ayudadigital/jenkins-dind/commit/21675b7))
+
+#### Docs
+
+* Generate v2.7.0 changelog with JPL ([4c34a80](https://github.com/ayudadigital/jenkins-dind/commit/4c34a80))
+
+### Authors
+
+* Pedro Amador
+
 ## v2.7.0 (2020-10-31)
 
 ### Changes
