@@ -1,5 +1,26 @@
 # Changelog
 
+## v2.10.0 (2021-02-15)
+
+### Changes
+
+#### Upgrade
+
+* Use Jenkins v2.263.4 ([739db14](https://github.com/ayudadigital/jenkins-dind/commit/739db14))
+
+#### Build
+
+* Update Auto Release Log adding v2.10.0 info with JPL ([1336888](https://github.com/ayudadigital/jenkins-dind/commit/1336888))
+* Use jpl 6.0.2 and increase build timeout ([b10ec8f](https://github.com/ayudadigital/jenkins-dind/commit/b10ec8f))
+
+#### Docs
+
+* Generate v2.9.0 changelog with JPL ([30dfd3d](https://github.com/ayudadigital/jenkins-dind/commit/30dfd3d))
+
+### Authors
+
+* Pedro Amador
+
 ## v2.9.0 (2020-12-04)
 
 ### Changes
