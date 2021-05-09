@@ -1,5 +1,26 @@
 # Changelog
 
+## v2.13.0 (2021-05-09)
+
+### Changes
+
+#### Upgrade
+
+* Use Jenkins v2.277.4 ([edb5f60](https://github.com/ayudadigital/jenkins-dind/commit/edb5f60))
+
+#### Build
+
+* Update Auto Release Log adding v2.13.0 info with JPL ([b66a70e](https://github.com/ayudadigital/jenkins-dind/commit/b66a70e))
+* Use jpl v6.2.0 ([5c1b4c1](https://github.com/ayudadigital/jenkins-dind/commit/5c1b4c1))
+
+#### Docs
+
+* Generate v2.12.0 changelog with JPL ([aeabe66](https://github.com/ayudadigital/jenkins-dind/commit/aeabe66))
+
+### Authors
+
+* Pedro Amador
+
 ## v2.12.0 (2021-04-11)
 
 ### Changes
