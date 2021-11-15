@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.14.0 (2021-11-15)
+
+### Changes
+
+#### Upgrade
+
+* Use Jenkins v2.303.3 and downgrade to openjdk8 ([1832db7](https://github.com/ayudadigital/jenkins-dind/commit/1832db7))
+
+#### Build
+
+* Update Auto Release Log adding v2.14.0 info with JPL ([b8c2b78](https://github.com/ayudadigital/jenkins-dind/commit/b8c2b78))
+
+#### Docs
+
+* Generate v2.13.0 changelog with JPL ([263600e](https://github.com/ayudadigital/jenkins-dind/commit/263600e))
+
+### Authors
+
+* Pedro Amador
+
 ## v2.13.0 (2021-05-09)
 
 ### Changes
