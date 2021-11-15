@@ -51,10 +51,10 @@ EOF
             # Make "frankenstein" ayudadigital/jenkins-dind Dockerfile
             echo "FROM docker:dind" > Dockerfile-jenkins-dind
             cat resources/Dockerfile.partial >> Dockerfile-jenkins-dind
-            grep -v "^FROM\|^ENTRYPOINT" 11/alpine/hotspot/Dockerfile >> Dockerfile-jenkins-dind
+            grep -v "^FROM\|^ENTRYPOINT" 8/alpine/hotspot/Dockerfile >> Dockerfile-jenkins-dind
             echo "USER root" >> Dockerfile-jenkins-dind
             # Build the ayudadigital/jenkins-dind docker image
-            docker build --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --file Dockerfile-jenkins-dind -t ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
+            docker build --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --build-arg TARGETARCH="amd64" --file Dockerfile-jenkins-dind -t ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
             if [ ${JENKINS_TAG} != "beta" ]; then
                 docker tag ayudadigital/jenkins-dind:"${JENKINS_TAG}" ayudadigital/jenkins-dind:latest
             fi
