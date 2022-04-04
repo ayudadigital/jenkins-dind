@@ -1,5 +1,29 @@
 # Changelog
 
+## v2.18.0 (2022-04-04)
+
+### Changes
+
+#### New
+
+* Upgrade base image with lates packages (apk upgrade) ([a720890](https://github.com/ayudadigital/jenkins-dind/commit/a720890))
+
+#### Upgrade
+
+* Add all env vars to Jenkins process ([953497e](https://github.com/ayudadigital/jenkins-dind/commit/953497e))
+
+#### Build
+
+* Update Auto Release Log adding v2.18.0 info with JPL ([26b1e2c](https://github.com/ayudadigital/jenkins-dind/commit/26b1e2c))
+
+#### Docs
+
+* Generate v2.17.0 changelog with JPL ([d04d833](https://github.com/ayudadigital/jenkins-dind/commit/d04d833))
+
+### Authors
+
+* Pedro Amador
+
 ## v2.17.0 (2022-03-22)
 
 ### Changes
