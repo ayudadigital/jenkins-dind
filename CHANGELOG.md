@@ -1,5 +1,26 @@
 # Changelog
 
+## v2.20.0 (2022-07-04)
+
+### Changes
+
+#### Upgrade
+
+* Use Jenkins v2.346.1 ([39e9298](https://github.com:ayudadigital/jenkins-dind/commit/39e9298))
+
+#### Build
+
+* Update Auto Release Log adding v2.20.0 info with JPL ([4187dbe](https://github.com:ayudadigital/jenkins-dind/commit/4187dbe))
+* Recover e2e tests and upgrade to jpl v6.4.0 ([474a399](https://github.com:ayudadigital/jenkins-dind/commit/474a399))
+
+#### Docs
+
+* Generate v2.19.0 changelog with JPL ([224b34e](https://github.com:ayudadigital/jenkins-dind/commit/224b34e))
+
+### Authors
+
+* Pedro Amador
+
 ## v2.19.0 (2022-05-08)
 
 ### Changes
