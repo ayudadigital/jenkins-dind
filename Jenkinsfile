@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('github.com/ayudadigital/jenkins-pipeline-library@v6.2.0') _
+@Library('github.com/ayudadigital/jenkins-pipeline-library@v6.4.0') _
 
 // Initialize global config
 cfg = jplConfig('jenkins-dind', 'docker', '', [email: env.CI_NOTIFY_EMAIL_TARGETS])
@@ -54,7 +54,7 @@ pipeline {
         stage ('Run E2E tests') {
             when { anyOf { branch 'develop'; branch 'release/new' } }
             steps {
-                sh "echo 'devcontrol run-e2e-tests'"
+                sh "devcontrol run-e2e-tests"
             }
         }
         stage('Make release') {
