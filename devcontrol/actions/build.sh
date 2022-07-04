@@ -49,10 +49,11 @@ EOF
             git clone --quiet https://github.com/jenkinsci/docker.git .
             rsync -a "${baseDir}/resources/" resources/
             # Make "frankenstein" ayudadigital/jenkins-dind Dockerfile
-            echo "FROM docker:dind" > Dockerfile-jenkins-dind
+            grep -v "^ENTRYPOINT" 11/alpine/hotspot/Dockerfile > Dockerfile-jenkins-dind
+            sed "s/FROM alpine.*/FROM docker:dind/g" Dockerfile-jenkins-dind -i
             cat resources/Dockerfile.partial >> Dockerfile-jenkins-dind
-            grep -v "^FROM\|^ENTRYPOINT" 8/alpine/hotspot/Dockerfile >> Dockerfile-jenkins-dind
-            echo "USER root" >> Dockerfile-jenkins-dind
+            echo "Jenkinsfile"
+            cat Dockerfile-jenkins-dind
             # Build the ayudadigital/jenkins-dind docker image
             docker build --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --build-arg TARGETARCH="amd64" --file Dockerfile-jenkins-dind -t ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
             if [ ${JENKINS_TAG} != "beta" ]; then
