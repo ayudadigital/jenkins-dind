@@ -2,7 +2,7 @@
 
 # @file devcontrol/global/startup.sh
 # @brief devcontrol startup script and functions
-echo "Jenkins DinD (c) 2020 Ayuda Digital"
+echo "Jenkins DinD (c) 2017-2020 Red Panda CI (c) 2020-2022 Ayuda Digital"
 echo
 
 # @description Check presence of docker-related pieces in the system
