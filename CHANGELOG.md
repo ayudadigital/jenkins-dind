@@ -1,5 +1,30 @@
 # Changelog
 
+## v2.26.0 (2023-03-18)
+
+### Changes
+
+#### Upgrade
+
+* Use Jenkins v2.387.1 ([5816f2c](https://github.com:ayudadigital/jenkins-dind/commit/5816f2c))
+
+#### Update
+
+* Migrate to github docker registry ([58032bb](https://github.com:ayudadigital/jenkins-dind/commit/58032bb))
+
+#### Build
+
+* Update Auto Release Log adding v2.26.0 info with JPL ([2ae194b](https://github.com:ayudadigital/jenkins-dind/commit/2ae194b))
+* Login to gh instead dockerhub ([02c4718](https://github.com:ayudadigital/jenkins-dind/commit/02c4718))
+
+#### Docs
+
+* Generate v2.25.0 changelog with JPL ([a2b0337](https://github.com:ayudadigital/jenkins-dind/commit/a2b0337))
+
+### Authors
+
+* Pedro Amador
+
 ## v2.25.0 (2023-01-16)
 
 ### Changes
