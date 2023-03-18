@@ -18,7 +18,7 @@ function build() {
     # Init
     local briefMessage
     local helpMessage
-    briefMessage="Build the ayudadigital/jenkins-dind docker image"
+    briefMessage="Build the ghcr.io/ayudadigital/jenkins-dind docker image"
     helpMessage=$(cat <<EOF
 Build the Jenkins Dind image.
 It is based in a combination of jenkins/jenkins:lts docker image and docker:dind
@@ -50,14 +50,14 @@ EOF
             rsync -a "${baseDir}/resources/" resources/
             # Make "frankenstein" ayudadigital/jenkins-dind Dockerfile
             grep -v "^ENTRYPOINT" 11/alpine/hotspot/Dockerfile > Dockerfile-jenkins-dind
-            sed "s/FROM alpine.*/FROM docker:dind/g" Dockerfile-jenkins-dind -i
+            sed -i'' -e "s/FROM alpine.*/FROM docker:dind/g" Dockerfile-jenkins-dind
             cat resources/Dockerfile.partial >> Dockerfile-jenkins-dind
             echo "Jenkinsfile"
             cat Dockerfile-jenkins-dind
             # Build the ayudadigital/jenkins-dind docker image
-            docker build --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --build-arg TARGETARCH="amd64" --file Dockerfile-jenkins-dind -t ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
+            docker build --platform "linux/amd64" --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --build-arg TARGETARCH="amd64" --file Dockerfile-jenkins-dind -t ghcr.io/ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
             if [ ${JENKINS_TAG} != "beta" ]; then
-                docker tag ayudadigital/jenkins-dind:"${JENKINS_TAG}" ayudadigital/jenkins-dind:latest
+                docker tag ghcr.io/ayudadigital/jenkins-dind:"${JENKINS_TAG}" ghcr.io/ayudadigital/jenkins-dind:latest
             fi
             # Prune build dir
             cd "${baseDir}" || exit 1

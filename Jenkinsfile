@@ -12,7 +12,7 @@ String jenkinsVersion
  * @param nextReleaseNumber String Release number to be used as tag
  */
 def publishDockerImage(String jenkinsVersion) {
-    docker.withRegistry("", 'docker-token') {
+    docker.withRegistry("", 'docker-jenkins-ayudadigital') {
         docker.image("${env.DOCKER_ORGANIZATION}/jenkins-dind:${jenkinsVersion}").push()
         if (jenkinsVersion != "beta") {
             docker.image("${env.DOCKER_ORGANIZATION}/jenkins-dind:latest").push()
