@@ -1,4 +1,8 @@
 # Add sudo package and overwrite of default entrypoint
+LABEL org.opencontainers.image.source=https://github.com/ayudadigital/jenkins-dind
+LABEL org.opencontainers.image.description="Official Docker Jenkins combined with Official Docker DIND"
+LABEL org.opencontainers.image.licenses=MIT
+
 USER root
 RUN apk add --no-cache sudo && \
 	echo 'Defaults env_keep += "JAVA_* JENKINS_* REF COPY_REFERENCE_FILE_LOG"' >> /etc/sudoers
