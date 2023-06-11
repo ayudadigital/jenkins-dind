@@ -45,6 +45,7 @@ EOF
             # Prepare build directory
             baseDir="$(pwd)"
             buildDir="$(mktemp -d)"
+            echo "Builddir: ${buildDir}"
             cd "${buildDir}"
             git clone --quiet https://github.com/jenkinsci/docker.git .
             rsync -a "${baseDir}/resources/" resources/
@@ -55,7 +56,7 @@ EOF
             echo "Jenkinsfile"
             cat Dockerfile-jenkins-dind
             # Build the ayudadigital/jenkins-dind docker image
-            docker build --platform "linux/amd64" --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --build-arg TARGETARCH="amd64" --file Dockerfile-jenkins-dind -t ghcr.io/ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
+            docker build --platform "linux/amd64" --pull --no-cache --build-arg JENKINS_VERSION="${JENKINS_VERSION}" --build-arg JENKINS_SHA="${JENKINS_SHA}" --build-arg TARGETARCH="amd64" --build-arg RELEASE_LINE="war-stable" --file Dockerfile-jenkins-dind -t ghcr.io/ayudadigital/jenkins-dind:"${JENKINS_TAG}" .
             if [ ${JENKINS_TAG} != "beta" ]; then
                 docker tag ghcr.io/ayudadigital/jenkins-dind:"${JENKINS_TAG}" ghcr.io/ayudadigital/jenkins-dind:latest
             fi
