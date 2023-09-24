@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.30.0 (2023-09-24)
+
+### Changes
+
+#### Upgrade
+
+* Use Jenkins v2.414.2 ([063da31](https://github.com/ayudadigital/jenkins-dind/commit/063da31))
+
+#### Build
+
+* Update Auto Release Log adding v2.30.0 info with JPL ([b730af1](https://github.com/ayudadigital/jenkins-dind/commit/b730af1))
+
+#### Docs
+
+* Generate v2.29.0 changelog with JPL ([9fd40ff](https://github.com/ayudadigital/jenkins-dind/commit/9fd40ff))
+
+### Authors
+
+* Pedro Amador
+
 ## v2.29.0 (2023-08-02)
 
 ### Changes
