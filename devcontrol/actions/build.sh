@@ -37,7 +37,7 @@ EOF
             checkDocker
             # Get jenkins version
             source jenkins-version.ini
-            if [ "$2" == "beta" ]; then
+            if [ "${2:-}" == "beta" ]; then
                 JENKINS_TAG="beta"
             else
                 JENKINS_TAG=${JENKINS_VERSION}
