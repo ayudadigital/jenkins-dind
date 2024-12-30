@@ -50,8 +50,9 @@ EOF
             git clone --quiet https://github.com/jenkinsci/docker.git .
             rsync -a "${baseDir}/resources/" resources/
             # Make "frankenstein" ayudadigital/jenkins-dind Dockerfile
-            grep -v "^ENTRYPOINT" 11/alpine/hotspot/Dockerfile > Dockerfile-jenkins-dind
-            sed -i'' -e "s/FROM alpine.*/FROM docker:dind/g" Dockerfile-jenkins-dind
+            grep -v "^ENTRYPOINT" alpine/hotspot/Dockerfile > Dockerfile-jenkins-dind
+            sed -i'' -e "s/FROM alpine.* AS jre-build/FROM docker:dind AS jre-build/g; s/FROM alpine.* AS controller/FROM docker:dind AS controller/g" Dockerfile-jenkins-dind
+            #sed -i'' -e "s/FROM alpine.* AS controller/FROM docker:dind AS controller/g" Dockerfile-jenkins-dind
             cat resources/Dockerfile.partial >> Dockerfile-jenkins-dind
             echo "Jenkinsfile"
             cat Dockerfile-jenkins-dind
