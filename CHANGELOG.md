@@ -1,5 +1,34 @@
 # Changelog
 
+## v3.0.0 (2024-12-31)
+
+### Changes
+
+#### Breaking
+
+* Add java 17 compatibility, with new build process ([6641b6c](https://github.com/ayudadigital/jenkins-dind/commit/6641b6c))
+
+#### Upgrade
+
+* Use Jenkins v2.449.2 ([a88232b](https://github.com/ayudadigital/jenkins-dind/commit/a88232b))
+* Use Jenkins v2.440.3 ([111ad2f](https://github.com/ayudadigital/jenkins-dind/commit/111ad2f))
+
+#### Update
+
+* Don't fail when input parameter missing in build ([d83f625](https://github.com/ayudadigital/jenkins-dind/commit/d83f625))
+
+#### Build
+
+* Update Auto Release Log adding v3.0.0 info with JPL ([6631bb7](https://github.com/ayudadigital/jenkins-dind/commit/6631bb7))
+
+#### Docs
+
+* Generate v2.32.0 changelog with JPL ([8b54ef5](https://github.com/ayudadigital/jenkins-dind/commit/8b54ef5))
+
+### Authors
+
+* Pedro Amador
+
 ## v2.32.0 (2024-03-01)
 
 ### Changes
