@@ -1,5 +1,25 @@
 # Changelog
 
+## v3.0.1 (2024-12-31)
+
+### Changes
+
+#### Fix
+
+* Add path env var to jenkins start ([e6914de](https://github.com/ayudadigital/jenkins-dind/commit/e6914de))
+
+#### Build
+
+* Update Auto Release Log adding v3.0.1 info with JPL ([1b3610c](https://github.com/ayudadigital/jenkins-dind/commit/1b3610c))
+
+#### Docs
+
+* Generate v3.0.0 changelog with JPL ([e98e4c2](https://github.com/ayudadigital/jenkins-dind/commit/e98e4c2))
+
+### Authors
+
+* Pedro Amador
+
 ## v3.0.0 (2024-12-31)
 
 ### Changes
